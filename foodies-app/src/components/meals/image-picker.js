@@ -15,8 +15,10 @@ export default function ImagePicker({ label, name }) {
     function handleImageChange(event) {
         const file = event.target.files[0];
 
-        if (!file)
+        if (!file) {
+            setPickedImage(null)
             return
+        }
 
         const fileReader = new FileReader();
 
@@ -49,6 +51,7 @@ export default function ImagePicker({ label, name }) {
                     name={name}
                     ref={ImageInput}
                     onChange={handleImageChange}
+                    required
                 />
                 <button className={classes.button} type='button' onClick={handlePickClick}>
                     Pick an Image
