@@ -18,4 +18,5 @@ export function saveMeal(meal) {
     meal.instructions = xss(instructions)
 
     const extension = meal.image.split('.').pop();
+    const filename = `${meal.slug}.${extension}`
 }
